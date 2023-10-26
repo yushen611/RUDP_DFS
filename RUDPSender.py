@@ -32,7 +32,7 @@ class RUDPSender:
             return None
         
     #可靠传输，需要等待应答的那种
-    def reliable_send(self, data, allowed_resend_max_times=10) ->bool:
+    def reliable_send(self, data, allowed_resend_max_times=3) ->bool:
         '''
         allowed_resend_max_times : 丢包后允许失败的最大次数
         '''

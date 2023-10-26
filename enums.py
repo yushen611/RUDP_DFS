@@ -3,6 +3,7 @@ from enum import Enum
 class DataType(Enum):
     Base64str = 1
     Normalstr = 2
+    insertSuccess = 3
     
 
     def __str__(self):

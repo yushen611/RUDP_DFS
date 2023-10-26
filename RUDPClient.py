@@ -126,12 +126,12 @@ def input_thread(client):
 
     while True:
         user_input = input(
-            "Enter 'e' to exit, "
-            "'1' for read request, "
-            "'2' for insert request, "
-            "'3' for subscribe request, "
-            "'4' for getFileLen request, "
-            "'5' for createFile request: "
+            "\nEnter 'e' to exit,\n "
+            "\n'1' for read request, \n"
+            "\n'2' for insert request,\n "
+            "\n'3' for subscribe request,\n "
+            "\n'4' for getFileLen request,\n "
+            "\n'5' for createFile request:\n "
         )
         handler = options.get(user_input)
         if handler:
@@ -142,6 +142,7 @@ def input_thread(client):
 
 if __name__ == "__main__":
     SERVER_IP = '127.0.0.1'
+    # SERVER_IP = '172.20.10.5'
     SERVER_PORT = 12345
     BUFFER_SIZE = 1024
     TIMEOUT = 2
@@ -149,7 +150,7 @@ if __name__ == "__main__":
     client = RUDPClient(SERVER_IP, SERVER_PORT, BUFFER_SIZE, TIMEOUT)
     requesthello = {"type":"hello"}
     if client.reliable_send(marshal_dict(requesthello)):
-        print("client发送hello成功")
+        print("\nclient发送hello成功\n")
     
     
     # 创建一个独立的线程来执行客户端的接收逻辑

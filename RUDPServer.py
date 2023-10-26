@@ -21,6 +21,7 @@ class RUDPServer:
         self.sock.sendto(ack_message.encode(), addr)
 
     def reliable_receive(self):
+        print("\nserver启动\n")
         while True:
             try:
                 data, addr = self.sock.recvfrom(self.buffer_size)
@@ -57,13 +58,14 @@ class RUDPServer:
             except ConnectionResetError:
                 print("客户端关闭连接")
                 continue  # 继续监听
+if __name__=="__main__":
+    # 定义一些常量
+    SERVER_IP = '127.0.0.1'
+    # SERVER_IP ='172.20.10.5'
+    SERVER_PORT = 12345
+    BUFFER_SIZE = 1024
 
-# 定义一些常量
-SERVER_IP = '127.0.0.1'
-SERVER_PORT = 12345
-BUFFER_SIZE = 1024
-
-# 使用示例
-server = RUDPServer(SERVER_IP,SERVER_PORT,BUFFER_SIZE)
-server.reliable_receive()
+    # 使用示例
+    server = RUDPServer(SERVER_IP,SERVER_PORT,BUFFER_SIZE)
+    server.reliable_receive()
 
